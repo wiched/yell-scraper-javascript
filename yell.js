@@ -1,6 +1,6 @@
 var fs = require('fs');
 // column Separator for the .csv export
-var seperator = ',';
+var seperator = ';';
 
 // settings up casperjs
 var casper = require('casper').create({
@@ -67,9 +67,9 @@ casper.then(function () {
         city = '',
         post = '';
 
-      if (node.querySelector('.businessCapsule--ctas a')) {
-        url = node.querySelector('.businessCapsule--ctas a').getAttribute('href');
-      }
+      if (node.querySelector('.icon-Business-website')) {
+        url = node.querySelector('.icon-Business-website').parentElement.getAttribute('href');
+      } 
       if (node.querySelector('span[itemprop="telephone"]')) {
         phone = node.querySelector('span[itemprop="telephone"]').innerHTML.trim();
       }
@@ -88,7 +88,7 @@ casper.then(function () {
       }
       return {
         // return the results and for the h2 we use childNodes[0].nodeValue to get only the title (sponsored results have span with text that we dont want)
-        name: node.querySelector('h2').childNodes[0].nodeValue.trim(),
+        name: node.querySelector('span').childNodes[0].nodeValue.trim(),
         url: url,
         phone: phone,
         address: address,
