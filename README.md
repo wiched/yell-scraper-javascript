@@ -15,4 +15,4 @@ npm install -g casperjs
 
 open your commandline and navigate to project root directory where the yell.js file is and run following command
 
-`casperjs yell.js --keyword="Window+Cleaning" --location="London" --page="2"`
+```casperjs yell.js --keyword="Window+Cleaning" --location="London" --page="2"```
